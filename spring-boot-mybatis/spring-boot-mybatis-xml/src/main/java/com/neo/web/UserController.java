@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,14 +28,14 @@ public class UserController {
     	User user=userMapper.getOne(id);
         return user;
     }
-    
+    //新增requestbody
     @RequestMapping("/add")
-    public void save(User user) {
+    public void save(@RequestBody  User user) {
     	userMapper.insert(user);
     }
     
     @RequestMapping(value="update")
-    public void update(User user) {
+    public void update(@RequestBody  User user) {
     	userMapper.update(user);
     }
     
